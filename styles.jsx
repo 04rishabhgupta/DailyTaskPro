@@ -14,6 +14,19 @@ export default function getStyles(darkMode) {
             color: darkMode ? '#ffffff' : '#0b3d91',
             marginBottom: 15
         },
+        button: {
+            backgroundColor: '#0b3d91',
+            paddingVertical: 12,
+            paddingHorizontal: 20,
+            borderRadius: 8,
+            marginTop: 20,
+            alignItems: 'center'
+        },
+        buttonText: {
+            color: '#fff',
+            fontSize: 16,
+            fontWeight: 'bold'
+        },
         quote: {
             fontSize: 15,
             fontStyle: 'italic',
