@@ -15,18 +15,20 @@ export default function getStyles(darkMode) {
             marginBottom: 15
         },
         button: {
-            backgroundColor: '#0b3d91',
+            flex: 1,
             paddingVertical: 12,
-            paddingHorizontal: 20,
-            borderRadius: 8,
-            marginTop: 20,
-            alignItems: 'center'
+            marginHorizontal: 5,
+            borderRadius: 10,
+            backgroundColor: '#0b3d91', 
+            alignItems: 'center',
+            elevation: 2 
         },
         buttonText: {
             color: '#fff',
             fontSize: 16,
             fontWeight: 'bold'
         },
+
         quote: {
             fontSize: 15,
             fontStyle: 'italic',
@@ -38,13 +40,14 @@ export default function getStyles(darkMode) {
         },
         input: {
             borderWidth: 1,
-            borderColor: darkMode ? '#555' : '#bbb',
+            borderColor: '#bbb',
             borderRadius: 10,
-            padding: 14,
-            backgroundColor: darkMode ? '#3a3a3a' : '#fff',
+            padding: 12,
+            width: '100%', 
+            backgroundColor: '#fff',
             marginBottom: 15,
-            color: darkMode ? '#fff' : '#000',
-            fontSize: 16
+            fontSize: 16,
+            color: '#000'
         },
         buttonContainer: {
             marginVertical: 6,
@@ -70,6 +73,19 @@ export default function getStyles(darkMode) {
         settingsText: {
             fontSize: 18,
             color: darkMode ? '#fff' : '#333'
+        },
+        popupButton: {
+            paddingVertical: 10,
+            paddingHorizontal: 20,
+            borderRadius: 8,
+            backgroundColor: '#0b3d91',
+            alignItems: 'center',
+            marginTop: 10
+        },
+        popupButtonText: {
+            color: '#fff',
+            fontSize: 16,
+            fontWeight: 'bold'
         },
         list: {
             paddingBottom: 20

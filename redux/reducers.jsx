@@ -1,4 +1,4 @@
-import { ADD_TASK, DELETE_TASK, TOGGLE_TASK_DONE } from './actions';
+import { ADD_TASK, DELETE_TASK, TOGGLE_TASK_DONE, UPDATE_TASK } from './actions';
 
 const initialState = {
     tasks: []
@@ -17,6 +17,17 @@ export default function taskReducer(state = initialState, action) {
                     task.id === action.payload ? { ...task, done: !task.done } : task
                 )
             };
+        case UPDATE_TASK:
+            return {
+                ...state,
+                tasks: state.tasks.map(task =>
+                    task.id === action.payload.id
+                        ? { ...task, title: action.payload.newTitle }
+                        : task
+                )
+            };
+
+    
         default:
             return state;
     }

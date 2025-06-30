@@ -21,8 +21,8 @@ export default function HomeScreen({ navigation }) {
     }, []);
 
     const fetchQuote = async () => {
-        const result = await getMotivationalQuote();
-        setQuote(result);
+        const quote = await getMotivationalQuote();
+        setQuote(quote);
     };
 
     const handleDelete = (id) => {
