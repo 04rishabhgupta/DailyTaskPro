@@ -1,11 +1,13 @@
-export const getMotivationalQuote = async () => {
+export async function getMotivationalQuote() {
     try {
         const response = await fetch('https://zenquotes.io/api/quotes/');
         const data = await response.json();
-        const randomIndex = Math.floor(Math.random() * data.length);
-        return data[randomIndex].text;
+        const totalQuotes = data.length;
+        const randomIndex = Math.floor(Math.random() * totalQuotes);
+        const randomQuote = data[randomIndex].text;
+        return randomQuote;
     } catch (error) {
-        console.error('Error fetching quote:', error);
+        console.log('Error fetching quote:', error);
         return 'Stay positive!';
     }
-};
+}

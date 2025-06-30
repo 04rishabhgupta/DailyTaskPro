@@ -7,7 +7,6 @@ import SettingsScreen from './screens/SettingsScreen';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import ThemeProvider from './contexts/ThemeContext';
-import { loadTasksFromStorage, saveTasksToStorage } from './storage/taskStorage';
 
 
 const Stack = createStackNavigator();

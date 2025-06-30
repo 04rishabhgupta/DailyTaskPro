@@ -38,10 +38,11 @@ export default function HomeScreen({ navigation }) {
                 data={tasks}
                 contentContainerStyle={styles.list}
                 renderItem={({ item }) => (
-                    <TaskCard item={item} onDelete={handleDelete} />
+                    <TaskCard item={item} />
                 )}
                 keyExtractor={item => item.id}
             />
+
 
             <View style={styles.buttonContainer}>
                 <Button title="Add Task" onPress={() => navigation.navigate('AddTask')} />
