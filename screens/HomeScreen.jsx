@@ -2,10 +2,11 @@ import React, { useContext, useState, useEffect } from 'react';
 import { View, Text, FlatList, Button } from 'react-native';
 import TaskCard from '../components/TaskCard';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteTask } from '../redux/actions';
+import { addTask, deleteTask } from '../redux/actions';
 import { getMotivationalQuote } from '../utils/api';
 import getStyles from '../styles';
 import { ThemeContext } from '../contexts/ThemeContext';
+import { saveTasksToStorage, loadTasksFromStorage } from '../storage/taskStorage';
 
 export default function HomeScreen({ navigation }) {
     const { darkMode } = useContext(ThemeContext);
@@ -18,15 +19,35 @@ export default function HomeScreen({ navigation }) {
 
     useEffect(() => {
         fetchQuote();
+        loadTasks();
     }, []);
+
+    useEffect(() => {
+        saveTasks();
+    }, [tasks]);
 
     const fetchQuote = async () => {
         const quote = await getMotivationalQuote();
         setQuote(quote);
     };
 
-    const handleDelete = (id) => {
-        dispatch(deleteTask(id));
+    const loadTasks = async () => {
+        try {
+            const savedTasks = await loadTasksFromStorage();
+            savedTasks.forEach(task => {
+                dispatch(addTask(task));
+            });
+        } catch (e) {
+            console.error('Error loading tasks:', e);
+        }
+    };
+
+    const saveTasks = async () => {
+        try {
+            await saveTasksToStorage(tasks);
+        } catch (e) {
+            console.error('Error saving tasks:', e);
+        }
     };
 
     return (
@@ -42,7 +63,6 @@ export default function HomeScreen({ navigation }) {
                 )}
                 keyExtractor={item => item.id}
             />
-
 
             <View style={styles.buttonContainer}>
                 <Button title="Add Task" onPress={() => navigation.navigate('AddTask')} />

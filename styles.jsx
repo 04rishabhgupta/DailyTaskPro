@@ -4,7 +4,7 @@ export default function getStyles(darkMode) {
     return StyleSheet.create({
         container: {
             flex: 1,
-            backgroundColor: darkMode ? '#2c2c2c' : '#f0f4f8', // dark grey for dark mode
+            backgroundColor: darkMode ? '#2c2c2c' : '#f0f4f8', 
             paddingHorizontal: 20,
             paddingTop: 30
         },
